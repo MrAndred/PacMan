@@ -1,0 +1,8 @@
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\bin\Debug\PacMan.exe.config
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\bin\Debug\PacMan.exe
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\bin\Debug\PacMan.pdb
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\obj\Debug\PacMan.csproj.AssemblyReference.cache
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\obj\Debug\PacMan.csproj.SuggestedBindingRedirects.cache
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\obj\Debug\PacMan.csproj.CoreCompileInputs.cache
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\obj\Debug\PacMan.exe
+C:\Users\Andrew Areshko\source\repos\PacMan\PacMan\obj\Debug\PacMan.pdb
