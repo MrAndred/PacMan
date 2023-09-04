@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,21 +22,22 @@ namespace PacMan
 
             Console.CursorVisible = false;
 
-            int pacManX = 1;
-            int pacManY = 1;
+            int pacManPositionX = 1;
+            int pacManPositionY = 1;
             int score = 0;
+            bool isWorking = true;
 
-            while (true)
+            while (isWorking == true)
             {
                 Console.Clear();
 
-                HandleInput(pressedKey, ref pacManX, ref pacManY, map, ref score);
+                HandleInput(pressedKey, ref pacManPositionX, ref pacManPositionY, map, ref score);
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 DrawMap(map);
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.SetCursorPosition(pacManX, pacManY);
+                Console.SetCursorPosition(pacManPositionX, pacManPositionY);
                 Console.Write("@");
 
                 Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -47,21 +48,23 @@ namespace PacMan
             }
         }
 
-        private static void HandleInput(ConsoleKeyInfo pressedKey, ref int pacManX, ref int pacManY, char[,] map, ref int score)
+        private static void HandleInput(ConsoleKeyInfo pressedKey, ref int pacManPositionX, ref int pacManPositionY, char[,] map, ref int score)
         {
             int[] directoin = GetDirection(pressedKey);
 
-            int nextPacManPositionX = pacManX + directoin[0];
-            int nextPackManPositionY = pacManY + directoin[1];
+            int nextPacManPositionX = pacManPositionX + directoin[0];
+            int nextPackManPositionY = pacManPositionY + directoin[1];
 
             char nextCell = map[nextPacManPositionX, nextPackManPositionY];
+            char roadSymbol = ' ';
+            char scoreSymbol = '.';
 
-            if (nextCell == ' ' || nextCell == '.')
+            if (nextCell == roadSymbol || nextCell == scoreSymbol)
             {
-                pacManX = nextPacManPositionX;
-                pacManY = nextPackManPositionY;
+                pacManPositionX = nextPacManPositionX;
+                pacManPositionY = nextPackManPositionY;
 
-                if (nextCell == '.')
+                if (nextCell == scoreSymbol)
                 {
                     score += 1;
                     map[nextPacManPositionX, nextPackManPositionY] = ' ';
