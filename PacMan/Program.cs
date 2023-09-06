@@ -44,8 +44,19 @@ namespace PacMan
                 Console.SetCursorPosition(38, 0);
                 Console.Write($"Score: {score}");
 
+                isWorking = HandleExit(pressedKey, isWorking);
                 Thread.Sleep(1000);
             }
+        }
+
+        private static bool HandleExit(ConsoleKeyInfo pressedKey, bool isWorking)
+        {
+            if (pressedKey.Key == ConsoleKey.Escape)
+            {
+                isWorking = false;
+            }
+            
+            return isWorking;
         }
 
         private static void HandleInput(ConsoleKeyInfo pressedKey, ref int pacManPositionX, ref int pacManPositionY, char[,] map, ref int score)
@@ -67,7 +78,7 @@ namespace PacMan
                 if (nextCell == scoreSymbol)
                 {
                     score += 1;
-                    map[nextPacManPositionX, nextPackManPositionY] = ' ';
+                    map[nextPacManPositionX, nextPackManPositionY] = roadSymbol;
                 }
             }
         }
@@ -76,19 +87,24 @@ namespace PacMan
         {
             int[] directions = { 0, 0 };
 
-            if (pressedKey.Key == ConsoleKey.UpArrow)
+            ConsoleKey upStep = ConsoleKey.UpArrow;
+            ConsoleKey downStep = ConsoleKey.DownArrow;
+            ConsoleKey rightStep = ConsoleKey.RightArrow;
+            ConsoleKey leftStep = ConsoleKey.LeftArrow;
+
+            if (pressedKey.Key == upStep)
             {
                 directions[1] -= 1;
             }
-            else if (pressedKey.Key == ConsoleKey.DownArrow)
+            else if (pressedKey.Key == downStep)
             {
                 directions[1] += 1;
             }
-            else if (pressedKey.Key == ConsoleKey.LeftArrow)
+            else if (pressedKey.Key == leftStep)
             {
                 directions[0] -= 1;
             }
-            else if (pressedKey.Key == ConsoleKey.RightArrow)
+            else if (pressedKey.Key == rightStep)
             {
                 directions[0] += 1;
             }
