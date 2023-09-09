@@ -11,10 +11,11 @@ namespace PacMan
         {
             char[,] map = ReadMap("map.txt");
             ConsoleKeyInfo pressedKey = new ConsoleKeyInfo('w', ConsoleKey.W, false, false, false);
+            bool isWorking = true;
 
             Task.Run(() =>
             {
-                while (true)
+                while (isWorking == true)
                 {
                     pressedKey = Console.ReadKey();
                 }
@@ -25,7 +26,6 @@ namespace PacMan
             int pacManPositionX = 1;
             int pacManPositionY = 1;
             int score = 0;
-            bool isWorking = true;
 
             while (isWorking == true)
             {
